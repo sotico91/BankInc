@@ -1,6 +1,7 @@
-package com.co.bankInc.service;
+package com.co.bankInc.service.card;
 
-import com.co.bankInc.model.dto.CardDTO;
+import com.co.bankInc.model.card.dto.CardDTO;
+import com.co.bankInc.model.card.entity.CardEntity;
 
 public interface CardService {
 
@@ -9,4 +10,6 @@ public interface CardService {
     void blockCard(String cardNumber);
     void rechargeBalance(String cardNumber, Double balance);
     Double getBalance(String cardNumber);
+    CardEntity getCardNumber(String cardNumber);
+    void updateCardBalance(String cardNumber, double newBalance);
 }

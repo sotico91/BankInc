@@ -1,7 +1,7 @@
-package com.co.bankInc.mapper;
+package com.co.bankInc.mapper.card;
 
-import com.co.bankInc.model.dto.CardDTO;
-import com.co.bankInc.model.entity.CardEntity;
+import com.co.bankInc.model.card.dto.CardDTO;
+import com.co.bankInc.model.card.entity.CardEntity;
 import org.springframework.stereotype.Component;
 
 @Component

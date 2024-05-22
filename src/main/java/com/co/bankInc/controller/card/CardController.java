@@ -1,8 +1,11 @@
-package com.co.bankInc.controller;
+package com.co.bankInc.controller.card;
 
-import com.co.bankInc.model.dto.CardDTO;
-import com.co.bankInc.model.dto.MessageDTO;
-import com.co.bankInc.service.CardService;
+import com.co.bankInc.model.card.dto.CardDTO;
+import com.co.bankInc.model.generalMessage.MessageBadRequestDTO;
+import com.co.bankInc.model.generalMessage.MessageDTO;
+import com.co.bankInc.model.generalMessage.MessageInternalErrorDTO;
+import com.co.bankInc.model.card.dto.MessageCardNotFoundDTO;
+import com.co.bankInc.service.card.CardService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -37,13 +40,13 @@ public class CardController {
                             schema = @Schema(implementation = CardDTO.class))}),
             @ApiResponse(responseCode = "400", description = "Bad request",
                     content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = MessageDTO.class))}),
+                            schema = @Schema(implementation = MessageBadRequestDTO.class))}),
             @ApiResponse(responseCode = "404", description = "Card not found",
                     content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = MessageDTO.class))}),
+                            schema = @Schema(implementation = MessageCardNotFoundDTO.class))}),
             @ApiResponse(responseCode = "500", description = "Internal server error",
                     content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = MessageDTO.class))})
+                            schema = @Schema(implementation = MessageInternalErrorDTO.class))})
     })
     @GetMapping("/{productId}/number")
     public ResponseEntity<CardDTO> generatedCardNumber(@PathVariable String productId, @RequestParam  String cardholderName){
@@ -58,13 +61,13 @@ public class CardController {
                             schema = @Schema(implementation = MessageDTO.class))}),
             @ApiResponse(responseCode = "400", description = "Bad request",
                     content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = MessageDTO.class))}),
+                            schema = @Schema(implementation = MessageBadRequestDTO.class))}),
             @ApiResponse(responseCode = "404", description = "Card not found",
                     content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = MessageDTO.class))}),
+                            schema = @Schema(implementation = MessageCardNotFoundDTO.class))}),
             @ApiResponse(responseCode = "500", description = "Internal server error",
                     content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = MessageDTO.class))})
+                            schema = @Schema(implementation = MessageInternalErrorDTO.class))})
     })
     @PostMapping("/enroll")
     public ResponseEntity<MessageDTO> enrollCard(@RequestBody CardDTO cardDTO) {
@@ -84,13 +87,13 @@ public class CardController {
                             schema = @Schema(implementation = MessageDTO.class))}),
             @ApiResponse(responseCode = "400", description = "Bad request",
                     content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = MessageDTO.class))}),
+                            schema = @Schema(implementation = MessageBadRequestDTO.class))}),
             @ApiResponse(responseCode = "404", description = "Card not found",
                     content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = MessageDTO.class))}),
+                            schema = @Schema(implementation = MessageCardNotFoundDTO.class))}),
             @ApiResponse(responseCode = "500", description = "Internal server error",
                     content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = MessageDTO.class))})
+                            schema = @Schema(implementation = MessageInternalErrorDTO.class))})
     })
     @DeleteMapping("/{cardNumber}")
     public ResponseEntity<MessageDTO> blockCard(@PathVariable("cardNumber") String cardNumber) {
@@ -111,13 +114,13 @@ public class CardController {
                             schema = @Schema(implementation = MessageDTO.class))}),
             @ApiResponse(responseCode = "400", description = "Bad request",
                     content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = MessageDTO.class))}),
+                            schema = @Schema(implementation = MessageBadRequestDTO.class))}),
             @ApiResponse(responseCode = "404", description = "Card not found",
                     content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = MessageDTO.class))}),
+                            schema = @Schema(implementation = MessageCardNotFoundDTO.class))}),
             @ApiResponse(responseCode = "500", description = "Internal server error",
                     content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = MessageDTO.class))})
+                            schema = @Schema(implementation = MessageInternalErrorDTO.class))})
     })
     @PostMapping("/balance")
     public ResponseEntity<MessageDTO> rechargeBalance(@RequestBody CardDTO cardDTO) {
@@ -138,13 +141,13 @@ public class CardController {
                             schema = @Schema(implementation = MessageDTO.class))}),
             @ApiResponse(responseCode = "400", description = "Bad request",
                     content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = MessageDTO.class))}),
+                            schema = @Schema(implementation = MessageBadRequestDTO.class))}),
             @ApiResponse(responseCode = "404", description = "Card not found",
                     content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = MessageDTO.class))}),
+                            schema = @Schema(implementation = MessageCardNotFoundDTO.class))}),
             @ApiResponse(responseCode = "500", description = "Internal server error",
                     content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = MessageDTO.class))}),
+                            schema = @Schema(implementation = MessageInternalErrorDTO.class))}),
     })
     @GetMapping("/balance/{cardNumber}")
     public ResponseEntity<MessageDTO> getBalance(@PathVariable("cardNumber") String cardNumber) {

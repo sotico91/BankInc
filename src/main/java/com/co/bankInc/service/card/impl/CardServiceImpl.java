@@ -1,12 +1,12 @@
-package com.co.bankInc.service.impl;
+package com.co.bankInc.service.card.impl;
 
 import com.co.bankInc.exceptions.impl.ResourceBadRequestException;
 import com.co.bankInc.exceptions.impl.ResourceNotFoundException;
-import com.co.bankInc.mapper.CardMapper;
-import com.co.bankInc.model.dto.CardDTO;
-import com.co.bankInc.model.entity.CardEntity;
-import com.co.bankInc.repository.CardRepository;
-import com.co.bankInc.service.CardService;
+import com.co.bankInc.mapper.card.CardMapper;
+import com.co.bankInc.model.card.dto.CardDTO;
+import com.co.bankInc.model.card.entity.CardEntity;
+import com.co.bankInc.repository.card.CardRepository;
+import com.co.bankInc.service.card.CardService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -122,6 +122,7 @@ public class CardServiceImpl implements CardService {
         return cardEntity.getBalance();
     }
 
+    @Override
     public CardEntity getCardNumber(String cardNumber){
 
         logger.info("Start getCardNumber method {}",cardNumber);
@@ -137,6 +138,14 @@ public class CardServiceImpl implements CardService {
         throw new ResourceNotFoundException("The card number: "+cardNumber +" Doesn't exist");
 
     }
+
+    @Override
+    public void updateCardBalance(String cardNumber, double newBalance) {
+        logger.info("Start updateCardBalance method {} ", cardNumber);
+        cardRepository.updateBalanceByCardNumber(cardNumber, newBalance);
+        logger.info("End updateCardBalance method");
+    }
+
 
     public String generateExpirationDate() {
 

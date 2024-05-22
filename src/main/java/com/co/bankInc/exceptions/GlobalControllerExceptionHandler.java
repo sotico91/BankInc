@@ -2,7 +2,7 @@ package com.co.bankInc.exceptions;
 
 import com.co.bankInc.exceptions.impl.ResourceBadRequestException;
 import com.co.bankInc.exceptions.impl.ResourceNotFoundException;
-import com.co.bankInc.model.dto.MessageDTO;
+import com.co.bankInc.model.generalMessage.MessageDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
