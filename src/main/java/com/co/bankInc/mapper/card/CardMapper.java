@@ -19,7 +19,6 @@ public class CardMapper {
         cardEntity.setBlocked(Boolean.FALSE);
 
         return cardEntity;
-
     }
 
     public CardDTO mapperCardEntityToDto(CardEntity cardEntity){

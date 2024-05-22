@@ -1,7 +1,7 @@
 package com.co.bankInc.mapper.transaction;
 
-import com.co.bankInc.model.transaction.dto.TransactionDTO;
 import com.co.bankInc.model.card.entity.CardEntity;
+import com.co.bankInc.model.transaction.dto.TransactionDTO;
 import com.co.bankInc.model.transaction.entity.TransactionEntity;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +20,6 @@ public class TransactionMapper {
         transactionEntity.setAnulated(Boolean.FALSE);
 
         return transactionEntity;
-
     }
 
     public TransactionDTO mapperTransactionEntityToTransactionDTO(TransactionEntity transactionEntity){
@@ -30,7 +29,5 @@ public class TransactionMapper {
                 .cardNumber(transactionEntity.getCard().getCardNumber())
                 .price(transactionEntity.getAmount())
                 .build();
-
     }
-
 }

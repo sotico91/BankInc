@@ -7,9 +7,9 @@ import com.co.bankInc.model.card.dto.CardDTO;
 import com.co.bankInc.model.card.entity.CardEntity;
 import com.co.bankInc.repository.card.CardRepository;
 import com.co.bankInc.service.card.CardService;
+import lombok.AllArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -17,14 +17,12 @@ import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
 @Service
+@AllArgsConstructor
 public class CardServiceImpl implements CardService {
 
     private static final Logger logger = LogManager.getLogger(CardServiceImpl.class);
 
-    @Autowired
     private CardRepository cardRepository;
-
-    @Autowired
     private CardMapper mapper;
 
     @Override
