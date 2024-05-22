@@ -1,10 +1,10 @@
 package com.co.bankInc.controller.card;
 
 import com.co.bankInc.model.card.dto.CardDTO;
+import com.co.bankInc.model.card.dto.MessageCardNotFoundDTO;
 import com.co.bankInc.model.generalMessage.MessageBadRequestDTO;
 import com.co.bankInc.model.generalMessage.MessageDTO;
 import com.co.bankInc.model.generalMessage.MessageInternalErrorDTO;
-import com.co.bankInc.model.card.dto.MessageCardNotFoundDTO;
 import com.co.bankInc.service.card.CardService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -12,7 +12,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
