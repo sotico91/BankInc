@@ -31,7 +31,7 @@
 📝 Copy and paste the following URL (https://cloudy-firefly-30794.postman.co/workspace/personalProjects~62add125-25a5-4cf7-973b-fd50fee26e6d/collection/8889996-c4e839b4-e668-44b7-886f-5011dfa9f64a?action=share&creator=8889996&active-environment=8889996-f3fcc163-b975-4662-bf97-dc40745821ae) to postman app or internet navigator 😉</br>
 😯 Run test from postman and verify expected results 😯</br>
 😱 The project also has swagger doc 😱</br>
-👍 Swagger doc you can see it in the following url (http://localhost:8091/swagger-ui/index.html#/controller-client/getInfoClient) from any internet navigator (Chrome. Iexplorer and othes)👍 </br>
+👍 Swagger doc you can see it in the following url (http://localhost:8091/swagger-ui/index.html#) from any internet navigator (Chrome. Iexplorer and othes)👍 </br>
 
 
 ## ❗️Important note
