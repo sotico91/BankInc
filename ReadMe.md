@@ -26,7 +26,7 @@
 
 ## 🔨 Steaps by execute and testing project
 
-😃 Import project (BankInc) with STS or Intellij, you must be have has JDK 17 installed in your machine 😊</br>
+😃 Import project (BankInc) with STS or Intellij, you must have has JDK 17 installed in your machine 😊</br>
 😬 Run to SpringBoot application </br>
 📝 Copy and paste the following URL (https://cloudy-firefly-30794.postman.co/workspace/personalProjects~62add125-25a5-4cf7-973b-fd50fee26e6d/collection/8889996-c4e839b4-e668-44b7-886f-5011dfa9f64a?action=share&creator=8889996&active-environment=8889996-f3fcc163-b975-4662-bf97-dc40745821ae) to postman app or internet navigator 😉</br>
 😯 Run test from postman and verify expected results 😯</br>
