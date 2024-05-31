@@ -20,7 +20,7 @@ public class CardDTO {
     @Schema(description = "card holder name")
     private String cardholderName;
 
-    @Schema(description = "card holder name")
+    @Schema(description = "card expiration date")
     private String expirationDate;
 
     @Schema(description = "current balance of card")

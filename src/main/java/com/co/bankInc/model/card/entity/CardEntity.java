@@ -26,10 +26,10 @@ public class CardEntity {
     @Schema(description = "card holder name")
     private String cardholderName;
 
-    @Schema(description = "expiration date card")
+    @Schema(description = "card expiration date")
     private String expirationDate;
 
-    @Schema(description = "active or inactive status card")
+    @Schema(description = "card active or inactive status")
     private boolean isActive;
 
     @Schema(description = "block status card")
