@@ -5,8 +5,10 @@ import com.co.bankInc.exceptions.impl.ResourceNotFoundException;
 import com.co.bankInc.model.generalMessage.MessageDTO;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
+import org.springframework.beans.TypeMismatchException;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -58,10 +60,32 @@ class GlobalControllerExceptionHandlerTest {
 
         NoResourceFoundException exception = new NoResourceFoundException(HttpMethod.GET, "/h2-console");
 
-        ResponseEntity<MessageDTO> responseEntity = exceptionHandler.handleNoResourceFoundException(exception);
+        ResponseEntity<MessageDTO> responseEntity = exceptionHandler.handleException(exception);
 
         assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
         assertEquals(HttpStatus.NOT_FOUND.value(), responseEntity.getBody().getCode());
         assertEquals(HttpStatus.NOT_FOUND.getReasonPhrase(), responseEntity.getBody().getMessage());
+    }
+
+    @Test
+    void testHandleMethodNotSupportedException() {
+
+        HttpRequestMethodNotSupportedException exception = new HttpRequestMethodNotSupportedException("DELETE");
+
+        ResponseEntity<MessageDTO> responseEntity = exceptionHandler.handleException(exception);
+
+        assertEquals(HttpStatus.METHOD_NOT_ALLOWED, responseEntity.getStatusCode());
+        assertEquals(HttpStatus.METHOD_NOT_ALLOWED.value(), responseEntity.getBody().getCode());
+    }
+
+    @Test
+    void testHandleTypeMismatchException() {
+
+        TypeMismatchException exception = new TypeMismatchException("abc", Long.class);
+
+        ResponseEntity<MessageDTO> responseEntity = exceptionHandler.handleException(exception);
+
+        assertEquals(HttpStatus.BAD_REQUEST, responseEntity.getStatusCode());
+        assertEquals(HttpStatus.BAD_REQUEST.value(), responseEntity.getBody().getCode());
     }
 }
