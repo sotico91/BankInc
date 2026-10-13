@@ -1,5 +1,5 @@
 # Usar una imagen base con JDK 17 y Maven
-FROM maven:3.8.4-openjdk-17-slim AS build
+FROM maven:3.9-eclipse-temurin-17 AS build
 
 # Establecer un directorio de trabajo
 WORKDIR /app
@@ -11,7 +11,7 @@ COPY . /app
 RUN mvn clean package -DskipTests
 
 # Crear una nueva imagen basada en OpenJDK 17 para ejecutar la aplicación
-FROM openjdk:17-slim
+FROM eclipse-temurin:17-jre
 
 # Exponer el puerto que utilizará la aplicación
 EXPOSE 8080
