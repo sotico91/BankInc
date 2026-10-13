@@ -5,7 +5,9 @@ import com.co.bankInc.exceptions.impl.ResourceNotFoundException;
 import com.co.bankInc.model.generalMessage.MessageDTO;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -49,5 +51,17 @@ class GlobalControllerExceptionHandlerTest {
         assertEquals(HttpStatus.BAD_REQUEST, responseEntity.getStatusCode());
         assertEquals(HttpStatus.BAD_REQUEST.value(), responseEntity.getBody().getCode());
         assertEquals("Bad request", responseEntity.getBody().getMessage());
+    }
+
+    @Test
+    void testHandleNoResourceFoundException() {
+
+        NoResourceFoundException exception = new NoResourceFoundException(HttpMethod.GET, "/h2-console");
+
+        ResponseEntity<MessageDTO> responseEntity = exceptionHandler.handleNoResourceFoundException(exception);
+
+        assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
+        assertEquals(HttpStatus.NOT_FOUND.value(), responseEntity.getBody().getCode());
+        assertEquals(HttpStatus.NOT_FOUND.getReasonPhrase(), responseEntity.getBody().getMessage());
     }
 }
